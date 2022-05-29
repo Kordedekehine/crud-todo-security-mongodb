@@ -23,7 +23,7 @@ public class TodoSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/login").permitAll()
+        http.authorizeRequests().antMatchers("/api/logout").permitAll()
                 .antMatchers("/api/todo", "/todo**/**").access("hasRole('USER')").and()
                 .formLogin();
 

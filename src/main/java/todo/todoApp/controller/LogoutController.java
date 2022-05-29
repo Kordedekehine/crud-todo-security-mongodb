@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/logout")
+@RequestMapping("/api/logout")
 public class LogoutController {
 
     @GetMapping("/")

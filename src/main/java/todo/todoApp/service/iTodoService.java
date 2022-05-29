@@ -14,11 +14,13 @@ public interface iTodoService {
 
     Optional<Todo> getTodoById(long id);
 
+    List<Todo> getAllTodos();
+
     void updateTodo(Todo todo);
 
     void addTodo(String name, String desc, Date targetDate, boolean isDone);
 
-    void deleteTodo(long id);
+    String deleteTodo(long id);
 
     void saveTodo(Todo todo);
 

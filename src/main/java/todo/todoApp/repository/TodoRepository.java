@@ -8,5 +8,7 @@ import todo.todoApp.model.Todo;
 import java.util.List;
 @Repository
 public interface TodoRepository extends MongoRepository<Todo,Long> {
-    List<Todo> findByUserName(String user);
+    List<Todo> findByUserName(String username);
+
+    List<Todo> findByDescription(String description);
 }

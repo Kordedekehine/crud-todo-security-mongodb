@@ -68,7 +68,7 @@ public void dateBinder(WebDataBinder binder){
         return "todo";
     }
 
-    @PostMapping("/update-todo")
+    @PutMapping("/update-todo")
     public String updateTodo(ModelMap modelMap, @Valid Todo todo, BindingResult bindingResult){
 
     if (bindingResult.hasErrors()){

@@ -16,8 +16,8 @@ public class TodoService implements iTodoService{
     TodoRepository todoRepository;
 
     @Override
-    public List<Todo> getTodosByUser(String user) {
-        return todoRepository.findByUserName(user);
+    public List<Todo> getTodosByUser(String username) {
+        return todoRepository.findByUserName(username);
     }
 
     @Override
@@ -26,23 +26,29 @@ public class TodoService implements iTodoService{
     }
 
     @Override
+    public List<Todo> getAllTodos() {
+        return todoRepository.findAll();
+    }
+
+    @Override
     public void updateTodo(Todo todo) {
         todoRepository.save(todo);
     }
 
     @Override
-    public void addTodo(String name, String desc, Date targetDate, boolean isDone) {
-      todoRepository.save(new Todo(name,desc,targetDate,isDone));
+    public void addTodo(String username, String desc, Date targetDate, boolean isDone) {
+      todoRepository.save(new Todo(username,desc,targetDate,isDone));
     }
 
     @Override
-    public void deleteTodo(long id) {
+    public String deleteTodo(long id) {
       Optional<Todo>  todo = todoRepository.findById(id);
       if (todo.isPresent()){
           todoRepository.deleteById(id);
       }
 
         todoRepository.deleteById(id);
+        return "deleted";
     }
 
     @Override
