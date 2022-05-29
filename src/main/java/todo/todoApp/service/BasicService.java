@@ -22,9 +22,9 @@ public class BasicService {
     public void addTodo(Todo todo) {
         List<Todo> addTodos = todoRepository.findByUserName(todo.getUserName());
         if (addTodos.isEmpty()) {
-            throw new IllegalArgumentException("Todos not saved");
+            todoRepository.save(todo);
         }
-        todoRepository.save(todo);
+        throw new IllegalArgumentException("Todos not saved");
     }
 
     public List<Todo> getAllStudents() {

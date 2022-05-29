@@ -24,7 +24,7 @@ public class TodoSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/api/logout").permitAll()
-                .antMatchers("/api/todo", "/todo**/**").access("hasRole('USER')").and()
+                .antMatchers("/api/todo","/api/todobs","/todo**/**").access("hasRole('USER')").and()
                 .formLogin();
 
         http.csrf().disable();
